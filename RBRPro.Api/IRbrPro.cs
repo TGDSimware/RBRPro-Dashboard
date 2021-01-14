@@ -1,14 +1,8 @@
 ﻿using RbrPro.API;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Speech.Recognition;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using TGD.Rbr.Telemetry.Data;
-using System.Speech.Recognition;
-using System.Speech.Synthesis;
 
 namespace RBRPro.Api
 {

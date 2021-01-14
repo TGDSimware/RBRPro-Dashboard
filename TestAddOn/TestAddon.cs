@@ -1,9 +1,11 @@
 ﻿using RBRPro.Api;
 using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using TGD.Rbr.Telemetry.Data;
+using System.Drawing;
 
 namespace RBRProTestAddOn
 {
@@ -19,12 +21,13 @@ namespace RBRProTestAddOn
         public string Name { get => "TestAddOn"; }
         public string Description { get => "This is a Test Add-On"; }
         public string Author { get => "TGD"; }
+        public char[] Gears = { 'R', 'N', '1', '2', '3', '4', '5', '6' };
 
         // An optional icon is provided to the manager, just to decorate the tab item a bit...
         public Image Icon => new Image { Source = new BitmapImage(new Uri($"pack://application:,,,/TestAddOn;component/icon.png", UriKind.Absolute)) };
 
         // This property tells the manager if the addon can be detached in a separate window or not
-        public bool IsDetachable { get => false; }
+        public bool IsDetachable { get => true; }
 
         #endregion
 
@@ -36,8 +39,7 @@ namespace RBRProTestAddOn
 
         public TestAddon()
         {
-            _model = new Model(this);
-            _model.CarSpeed = 1;    // Just to test the if the data binding works... and of course it does 
+            _model = new Model(this);       
         }
 
         /// <summary>
@@ -53,6 +55,13 @@ namespace RBRProTestAddOn
 
         private void _interactor_DataReceived(object sender, TelemetryData data)
         {
+            // this is where the telemetry is received, the data object contais all the infos
+            _model.ControlHandbrake = data.control.handbrake;
+            _model.StageDistance = data.stage.distanceToEnd;
+            _model.StageTime = data.stage.raceTime;
+            _model.ControlGear = Gears[data.control.gear];
+            _model.ControlThrottle = data.control.throttle;
+            _model.ControlBrakePressure = data.control.footbrakePressure;
             _model.CarSpeed = data.car.speed;
         }
 
@@ -62,7 +71,8 @@ namespace RBRProTestAddOn
         /// <param name="rbrProInteractor"></param>
         public void Ready(IRbrPro rbrProInteractor)
         {
-
+            _model.DriverName = _interactor.User.Name;
+            _model.DriverFlag = $"img/flags/{_interactor.User.Country}.jpg";
         }
 
         /// <summary>
@@ -71,7 +81,7 @@ namespace RBRProTestAddOn
         /// <returns></returns>
         public System.Windows.Controls.Control GetGui()
         {
-            return new TestAddonGui(this, _interactor, _model);
+            return new TestAddOnGui(this, _interactor, _model);
         }
 
         public void Exit()

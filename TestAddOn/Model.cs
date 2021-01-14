@@ -1,13 +1,15 @@
 ﻿using RBRPro.Api;
 using System.ComponentModel;
+using System.Windows.Controls;
 using TGD.Framework;
+using TGD.Rbr.Telemetry.Data;
 using TGD.Utils;
 
 namespace RBRProTestAddOn
 {
     public class Model : DynamicContextManager
     {
-        static IniFile _otherIni = new IniFile("OtherIniFile.ini");
+        //static IniFile _otherIni = new IniFile("OtherIniFile.ini");
 
         /// <summary>
         /// The Persistent Properties are loaded and saved automatically. They can have a default value. 
@@ -30,11 +32,19 @@ namespace RBRProTestAddOn
         [ConfigProperty("Section2", "PropertyName")]
         public string YetAnotherPersistentProperty { get { return GetIniProperty<string>(); } set { SetIniProperty(value); } }
 
+        [DefaultValue(120)]
+        [ConfigProperty("Overlay", "Top")]
+        public double OverlayTop { get { return GetIniPropertyNoCache<double>(); } set { SetIniProperty(value); } }
+
+        [DefaultValue(120)]
+        [ConfigProperty("Overlay", "Left")]
+        public double OverlayLeft { get { return GetIniPropertyNoCache<double>(); } set { SetIniProperty(value); } }
+
         /// <summary>
         /// This property is mapped in a specific section of the .ini File with a specific name
         /// </summary>
-        [ConfigProperty]
-        public string AdditionalPersistentProperty { get { return GetIniProperty<string>(_otherIni); } set { SetIniProperty(_otherIni, value); } }
+        /*[ConfigProperty]
+        public string AdditionalPersistentProperty { get { return GetIniProperty<string>(_otherIni); } set { SetIniProperty(_otherIni, value); } }*/
         #endregion
 
         /// <summary>
@@ -43,6 +53,30 @@ namespace RBRProTestAddOn
         #region RUNTIME PROPERTIES
         [RuntimeProperty("Car.Speed")]
         public float CarSpeed { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+
+        [RuntimeProperty("Control.Gear")]
+        public char ControlGear { get { return GetRuntimeProperty<char>(); } set { SetRuntimeProperty(value); } }
+
+        [RuntimeProperty("Control.Throttle")]
+        public float ControlThrottle { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+
+        [RuntimeProperty("Control.BrakePressure")]
+        public float ControlBrakePressure { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+
+        [RuntimeProperty("Control.Handbrake")]
+        public float ControlHandbrake { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+
+        [RuntimeProperty("Stage.Distance")]
+        public float StageDistance { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+
+        [RuntimeProperty("Stage.Time")]
+        public float StageTime { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+
+        [RuntimeProperty("Driver.Name")]
+        public string DriverName { get { return GetRuntimeProperty<string>(); } set { SetRuntimeProperty(value); } }
+
+        [RuntimeProperty("Driver.Country")]
+        public string DriverFlag { get { return GetRuntimeProperty<string>(); } set { SetRuntimeProperty(value); } }
 
         /*[RuntimeProperty]
         public int AnotherRuntimeProperty { get { return GetRuntimeProperty<int>(); } set { SetRuntimeProperty(value); } }*/
