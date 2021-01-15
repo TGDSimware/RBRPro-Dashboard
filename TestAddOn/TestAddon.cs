@@ -63,6 +63,8 @@ namespace RBRProTestAddOn
             _model.ControlThrottle = data.control.throttle;
             _model.ControlBrakePressure = data.control.footbrakePressure;
             _model.CarSpeed = (int) Math.Round(data.car.speed);
+            _model.EngineRpm = data.car.engine.rpm;
+            _model.RpmMax = Convert.ToDecimal(10000 - data.car.engine.rpm);
         }
 
         /// <summary>
@@ -72,7 +74,9 @@ namespace RBRProTestAddOn
         public void Ready(IRbrPro rbrProInteractor)
         {
             _model.DriverName = _interactor.User.Name.ToUpper() ;
-            _model.DriverFlag = $"img/flags/{_interactor.User.Country}.jpg";
+            _model.DriverFlag = new BitmapImage(new Uri($"http://rbrpro.org/img/flags/{_interactor.User.Country}.jpg"));
+                
+
         }
 
         /// <summary>

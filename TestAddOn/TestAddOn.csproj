@@ -95,7 +95,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="font\" />
-    <Folder Include="img\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -138,6 +137,9 @@
     <None Include="TestAddOn\TestAddOn.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\handbrake_logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

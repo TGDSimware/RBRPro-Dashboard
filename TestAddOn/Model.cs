@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using TGD.Framework;
 using TGD.Rbr.Telemetry.Data;
 using TGD.Utils;
+using System.Windows.Media.Imaging;
 
 namespace RBRProTestAddOn
 {
@@ -76,7 +77,13 @@ namespace RBRProTestAddOn
         public string DriverName { get { return GetRuntimeProperty<string>(); } set { SetRuntimeProperty(value); } }
 
         [RuntimeProperty("Driver.Country")]
-        public string DriverFlag { get { return GetRuntimeProperty<string>(); } set { SetRuntimeProperty(value); } }
+        public BitmapImage DriverFlag { get { return GetRuntimeProperty<BitmapImage>(); } set { SetRuntimeProperty(value); } }
+
+        [RuntimeProperty("Rpm.Max")]
+        public decimal RpmMax { get { return GetRuntimeProperty<decimal>(); } set { SetRuntimeProperty(value); } }
+
+        [RuntimeProperty("Engine.Rpm")]
+        public float EngineRpm { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
 
         /*[RuntimeProperty]
         public int AnotherRuntimeProperty { get { return GetRuntimeProperty<int>(); } set { SetRuntimeProperty(value); } }*/

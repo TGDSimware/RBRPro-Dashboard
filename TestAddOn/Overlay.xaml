@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:RBRProTestAddOn"
         xmlns:uc="clr-namespace:RBRProTestAddOn"
         mc:Ignorable="d"
-        Width="600" Height="200"
+        Width="522" Height="200"
         ShowInTaskbar="False" BorderThickness="0" ShowTitleBar="False" Foreground="White" FontSize="30" WindowStartupLocation="Manual" ResizeMode="NoResize" 
     Background="#11000000" WindowStyle="None" Topmost="True" ShowCloseButton="False" AllowsTransparency="True"
     LocationChanged="MetroWindow_LocationChanged" Deactivated="MetroWindow_Deactivated" Activated="MetroWindow_Activated">
@@ -50,13 +50,60 @@
             </Setter>
         </Style>
     </Window.Resources>
-    
-    
+
+
     <Grid Margin="0,2,0,0" VerticalAlignment="Top" Background="Transparent">
-        <StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="145*"/>
+            <ColumnDefinition Width="297*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="3">
             <StackPanel Cursor="Hand">
                 <StackPanel Orientation="Vertical">
                     <StackPanel Margin="115,0,0,0">
+                        <StackPanel HorizontalAlignment="Left" Width="200" Height="10" Background="Black">
+                            <Grid>
+                                <ProgressBar Minimum="0" Maximum="10000" Value="{Binding RpmMax}" Width="200" Height="10" BorderThickness="0" Foreground="Black" Margin="195,10,-205,0" >
+                                    <ProgressBar.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <LinearGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <RotateTransform CenterX="0.5" CenterY="0.5" Angle="270"/>
+                                                </TransformGroup>
+                                            </LinearGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#2aae00" Offset="1"/>
+                                            <GradientStop Color="#66b100" Offset="0.9"/>
+                                            <GradientStop Color="#88b900" Offset="0.8"/>
+                                            <GradientStop Color="#a2c100" Offset="0.7"/>
+                                            <GradientStop Color="#b1c000" Offset="0.6"/>
+                                            <GradientStop Color="#c5b900" Offset="0.5"/>
+                                            <GradientStop Color="#be9c07" Offset="0.4"/>
+                                            <GradientStop Color="#c18400" Offset="0.3"/>
+                                            <GradientStop Color="#af6705" Offset="0.2"/>
+                                            <GradientStop Color="#ad5402" Offset="0.1"/>
+                                            <GradientStop Color="#7e4106" Offset="0"/>
+                                        </LinearGradientBrush>
+                                    </ProgressBar.Background>
+                                    <ProgressBar.RenderTransform>
+                                        <RotateTransform Angle="180" />
+                                    </ProgressBar.RenderTransform>
+                                </ProgressBar>
+                                <StackPanel Orientation="Horizontal" Margin="0,-1,0,1">
+                                    <TextBlock Text="RPM" FontSize="6" Height="15" Padding="8,0" FontFamily="WRC Clean Roman" Foreground="Black"/>
+                                    <TextBlock Text="1" FontSize="6" Height="15" Padding="3,0,0,0" Margin="16,0,0,0" FontFamily="WRC Clean Roman" Foreground="Black"/>
+                                    <TextBlock Text="2" FontSize="6" Height="15" Padding="13,0,0,0" FontFamily="WRC Clean Roman" Foreground="Black"/>
+                                    <TextBlock Text="3" FontSize="6" Height="15" Padding="13,0,0,0" FontFamily="WRC Clean Roman" Foreground="Black"/>
+                                    <TextBlock Text="4" FontSize="6" Height="15" Padding="13,0,0,0" FontFamily="WRC Clean Roman" Foreground="Black"/>
+                                    <TextBlock Text="5" FontSize="6" Height="15" Padding="13,0,0,0" FontFamily="WRC Clean Roman" Foreground="Black"/>
+                                    <TextBlock Text="6" FontSize="6" Height="15" Padding="13,0,0,0" FontFamily="WRC Clean Roman" Foreground="Black"/>
+                                    <TextBlock Text="7" FontSize="6" Height="15" Padding="13,0,0,0" FontFamily="WRC Clean Roman" Foreground="Black"/>
+                                    <TextBlock Text="8" FontSize="6" Height="15" Padding="13,0,0,0" FontFamily="WRC Clean Roman" Foreground="Black"/>
+                                    <TextBlock Text="9" FontSize="6" Height="15" Padding="13,0,0,0" FontFamily="WRC Clean Roman" Foreground="Black"/>
+                                    
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
                         <StackPanel HorizontalAlignment="Left">
                             <Grid  Height="40" Width="200">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="135" Background="White">
@@ -71,7 +118,7 @@
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="32" Margin="168,0,0,0" Background="White">
                                     <Grid>
                                         <ProgressBar Width="32" Minimum="0" Maximum="1" Foreground="Red" BorderThickness="0" Value="{Binding ControlHandbrake}"/>
-                                        <Image Source="img/handbrake_logo.png" Margin="-5, 0"/>
+                                        <Image Source="img/handbrake_logo.png" Margin="-5, 0" Height="28"/>
                                     </Grid>
                                 </StackPanel>
                             </Grid>
@@ -96,13 +143,9 @@
                             <StackPanel>
                                 <StackPanel Width="315" Height="35" Background="Black" Margin="0,10" Orientation="Horizontal">
                                     <StackPanel>
-                                        <TextBlock Text="{Binding DriverName}" FontFamily="WRC Clean Bold" Style="{DynamicResource WRC-Driver}" Padding="5,6,0,0" Height="35" Width="210"></TextBlock>
+                                        <TextBlock Text="{Binding DriverName}" FontFamily="WRC Clean Bold" Style="{DynamicResource WRC-Driver}" Padding="5,6,0,0" Height="35" Width="273"></TextBlock>
                                     </StackPanel>
-                                    <StackPanel Width="42" Height="21" Margin="1,0,0,0" Background="White">
-                                        <Image Source="{Binding DriverFlag}" />
-                                    </StackPanel>
-                                    <Separator Style="{DynamicResource VerticalSeparatorStyle}" Margin="-10,0,0,0" Height="35" />
-                                    <StackPanel Width="42" Height="21" Margin="-10,0,0,0" Background="White">
+                                    <StackPanel Width="31" Height="21" Margin="5,0,0,0" Background="White">
                                         <Image Source="{Binding DriverFlag}" />
                                     </StackPanel>
                                 </StackPanel>
