@@ -52,7 +52,7 @@ namespace RBRProTestAddOn
         /// </summary>
         #region RUNTIME PROPERTIES
         [RuntimeProperty("Car.Speed")]
-        public float CarSpeed { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+        public int CarSpeed { get { return GetRuntimeProperty<int>(); } set { SetRuntimeProperty(value); } }
 
         [RuntimeProperty("Control.Gear")]
         public char ControlGear { get { return GetRuntimeProperty<char>(); } set { SetRuntimeProperty(value); } }
@@ -70,7 +70,7 @@ namespace RBRProTestAddOn
         public float StageDistance { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
 
         [RuntimeProperty("Stage.Time")]
-        public float StageTime { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+        public string StageTime { get { return GetRuntimeProperty<string>(); } set { SetRuntimeProperty(value); } }
 
         [RuntimeProperty("Driver.Name")]
         public string DriverName { get { return GetRuntimeProperty<string>(); } set { SetRuntimeProperty(value); } }

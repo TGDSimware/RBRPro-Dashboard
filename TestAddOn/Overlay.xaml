@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:RBRProTestAddOn"
         xmlns:uc="clr-namespace:RBRProTestAddOn"
         mc:Ignorable="d"
-        Width="300" Height="200"
+        Width="600" Height="200"
         ShowInTaskbar="False" BorderThickness="0" ShowTitleBar="False" Foreground="White" FontSize="30" WindowStartupLocation="Manual" ResizeMode="NoResize" 
     Background="#11000000" WindowStyle="None" Topmost="True" ShowCloseButton="False" AllowsTransparency="True"
     LocationChanged="MetroWindow_LocationChanged" Deactivated="MetroWindow_Deactivated" Activated="MetroWindow_Activated">
@@ -22,9 +22,14 @@
 
 
         <Style x:Key="WRC-Driver">
-            <Setter Property="TextElement.FontFamily" Value="font/wrcclean3.ttf #WRC Clean Bold"/>
-            <Setter Property="TextElement.FontSize" Value="14"/>
+            <Setter Property="TextElement.FontSize" Value="18"/>
             <Setter Property="TextElement.Foreground" Value="White" />
+        </Style>
+
+
+        <Style x:Key="WRC-Time">
+            <Setter Property="TextElement.FontSize" Value="30"/>
+            <Setter Property="TextElement.Foreground" Value="Black" />
         </Style>
 
         <Style x:Key="VerticalSeparatorStyle" 
@@ -44,49 +49,74 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
     </Window.Resources>
+    
+    
     <Grid Margin="0,2,0,0" VerticalAlignment="Top" Background="Transparent">
         <StackPanel>
             <StackPanel Cursor="Hand">
                 <StackPanel Orientation="Vertical">
-                    <StackPanel HorizontalAlignment="Left">
-                        <Grid  Height="40" Width="200">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="135" Background="White">
-                                <TextBlock Text="{Binding CarSpeed}" Width="65" TextAlignment="Right"  Margin="7,0,0,0" Padding="0,0" Foreground="Black" FontSize="32" FontFamily="WRC Clean Bold"></TextBlock>
-                                <TextBlock Text="km/h" Padding="2,17" Foreground="Black" FontSize="14" FontFamily="WRC Clean Bold"></TextBlock>
-                            </StackPanel>
-                            <Separator Style="{DynamicResource VerticalSeparatorStyle}" Margin="41,0,-29,0" Height="40" />
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="32" Margin="102,0,0,0" Background="Gray">
-                                <TextBlock Text="{Binding ControlGear}" Margin="0,3" Padding="0,0" TextAlignment="Center" Width="32" Foreground="White" FontSize="25" FontFamily="WRC Clean Bold"/>
-                            </StackPanel>
-                            <Separator Style="{DynamicResource VerticalSeparatorStyle}" Margin="106,0,-29,0" Height="40" />
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="32" Margin="168,0,0,0" Background="White">
-                                <Grid>
-                                    <ProgressBar Width="32" Minimum="0" Maximum="1" Foreground="Red" BorderThickness="0" Value="{Binding ControlHandbrake}"/>
-                                    <Image Source="/img/handbrake_logo.png" Margin="-5, 0"/>
-                                </Grid>
-                            </StackPanel>
-                        </Grid>
+                    <StackPanel Margin="115,0,0,0">
+                        <StackPanel HorizontalAlignment="Left">
+                            <Grid  Height="40" Width="200">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="135" Background="White">
+                                    <TextBlock Text="{Binding CarSpeed}" Width="65" TextAlignment="Right"  Margin="7,0,0,0" Padding="0,0" Foreground="Black" FontSize="32" FontFamily="WRC Clean Bold"></TextBlock>
+                                    <TextBlock Text="km/h" Padding="2,17" Foreground="Black" FontSize="14" FontFamily="WRC Clean Bold"></TextBlock>
+                                </StackPanel>
+                                <Separator Style="{DynamicResource VerticalSeparatorStyle}" Margin="41,0,-29,0" Height="40" />
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="32" Margin="102,0,0,0" Background="Gray">
+                                    <TextBlock Text="{Binding ControlGear}" Margin="0,3" Padding="0,0" TextAlignment="Center" Width="32" Foreground="White" FontSize="25" FontFamily="WRC Clean Bold"/>
+                                </StackPanel>
+                                <Separator Style="{DynamicResource VerticalSeparatorStyle}" Margin="106,0,-29,0" Height="40" />
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="32" Margin="168,0,0,0" Background="White">
+                                    <Grid>
+                                        <ProgressBar Width="32" Minimum="0" Maximum="1" Foreground="Red" BorderThickness="0" Value="{Binding ControlHandbrake}"/>
+                                        <Image Source="img/handbrake_logo.png" Margin="-5, 0"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Grid>
+                                <ProgressBar Background="Black" Foreground="Red" BorderThickness="0" Height="15" Width="100"  Minimum="0" Maximum="9700000" Value="{Binding ControlBrakePressure}" Margin="100,15,-100,-15">
+                                    <ProgressBar.RenderTransform>
+                                        <RotateTransform Angle="180" />
+                                    </ProgressBar.RenderTransform>
+                                </ProgressBar>
+                                <TextBlock Text="BRAKE" FontSize="9" Height="15" Padding="7,2" TextAlignment="Right" FontFamily="WRC Clean Bold" />
+                            </Grid>
+                            <Grid>
+                                <ProgressBar Background="Black" Foreground="Green" BorderThickness="0" Height="15" Width="100" Opacity="100"  Minimum="0" Maximum="1" Value="{Binding ControlThrottle}" />
+                                <TextBlock Text="THROTTLE" FontSize="9" Height="15" Padding="7,2" FontFamily="WRC Clean Bold"/>
+                            </Grid>
+                        </StackPanel>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Grid>
-                            <ProgressBar Background="Black" Foreground="Red" BorderThickness="0" Height="15" Width="100"  Minimum="0" Maximum="9700000" Value="{Binding ControlBrakePressure}" Margin="100,15,-100,-15">
-                                <ProgressBar.RenderTransform>
-                                    <RotateTransform Angle="180" />
-                                </ProgressBar.RenderTransform>
-                            </ProgressBar>
-                            <TextBlock Text="BRAKE" FontSize="9" Height="15" Padding="7,2" TextAlignment="Right" Style="{StaticResource WRC-Font}" />
-                        </Grid>
-                        <Grid>
-                            <ProgressBar Background="Black" Foreground="Green" BorderThickness="0" Height="15" Width="100" Opacity="100"  Minimum="0" Maximum="1" Value="{Binding ControlThrottle}" />
-                            <TextBlock Text="THROTTLE" FontSize="9" Height="15" Padding="7,2" Style="{StaticResource WRC-Font}"/>
-                        </Grid>
-                    </StackPanel>
-                    <StackPanel>
-                        <Grid Width="100" Height="20">
-                            <Image Source="{Binding DriverFlag}" />
-                        </Grid>
+                        <StackPanel>
+                            <StackPanel>
+                                <StackPanel Width="315" Height="35" Background="Black" Margin="0,10" Orientation="Horizontal">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding DriverName}" FontFamily="WRC Clean Bold" Style="{DynamicResource WRC-Driver}" Padding="5,6,0,0" Height="35" Width="210"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Width="42" Height="21" Margin="1,0,0,0" Background="White">
+                                        <Image Source="{Binding DriverFlag}" />
+                                    </StackPanel>
+                                    <Separator Style="{DynamicResource VerticalSeparatorStyle}" Margin="-10,0,0,0" Height="35" />
+                                    <StackPanel Width="42" Height="21" Margin="-10,0,0,0" Background="White">
+                                        <Image Source="{Binding DriverFlag}" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel>
+                            <StackPanel Margin="13,0">
+                                <StackPanel Width="190" Height="35" Margin="0,10" Orientation="Horizontal">
+                                    <Grid Background="White" Width="190" Height="35" Opacity="0.8">
+                                        <TextBlock HorizontalAlignment="Center"  Text="{Binding StageTime}" FontFamily="WRC Clean Bold" Style="{StaticResource WRC-Time}" Margin="0,-3,0,0" Height="35"></TextBlock>
+                                    </Grid>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

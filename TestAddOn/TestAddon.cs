@@ -58,11 +58,11 @@ namespace RBRProTestAddOn
             // this is where the telemetry is received, the data object contais all the infos
             _model.ControlHandbrake = data.control.handbrake;
             _model.StageDistance = data.stage.distanceToEnd;
-            _model.StageTime = data.stage.raceTime;
+            _model.StageTime = TimeSpan.FromSeconds(data.stage.raceTime).ToString("%m'.'s'.'f");
             _model.ControlGear = Gears[data.control.gear];
             _model.ControlThrottle = data.control.throttle;
             _model.ControlBrakePressure = data.control.footbrakePressure;
-            _model.CarSpeed = data.car.speed;
+            _model.CarSpeed = (int) Math.Round(data.car.speed);
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace RBRProTestAddOn
         /// <param name="rbrProInteractor"></param>
         public void Ready(IRbrPro rbrProInteractor)
         {
-            _model.DriverName = _interactor.User.Name;
+            _model.DriverName = _interactor.User.Name.ToUpper() ;
             _model.DriverFlag = $"img/flags/{_interactor.User.Country}.jpg";
         }
 
