@@ -43,18 +43,11 @@ namespace RBRProDashboard
             Local.Translate(this);
         }
 
-        private void Button_Trigger_WRCDashboard(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            WRCDashboard wrcDashboard = new WRCDashboard(_model, null);
-            wrcDashboard.Show();
-        }
-
-        private void Button_Trigger_MSportDashboard(object sender, RoutedEventArgs e)
-        {
-            MSportDashboard mSportDashboard = new MSportDashboard(_model, null);
-            mSportDashboard.Show();
-
-
+            Overlay myOverlay = new Overlay(_model, null);
+            myOverlay.Show();
+            //_rbrPro?.StartGame(false, false, false); // this is the action
         }
     }
 }

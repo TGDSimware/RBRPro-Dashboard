@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Local.cs" />
     <Compile Include="Model.cs" />
+<<<<<<< HEAD:Dashboard/Dashboard.csproj
     <Compile Include="MSportDashboard.xaml.cs">
       <DependentUpon>MSportDashboard.xaml</DependentUpon>
     </Compile>
@@ -80,14 +81,25 @@
     <Compile Include="DashboardGui.xaml.cs">
       <DependentUpon>DashboardGui.xaml</DependentUpon>
     </Compile>
+=======
+    <Compile Include="WRCDashboard.xaml.cs">
+      <DependentUpon>WRCDashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DashboardGui.xaml.cs">
+      <DependentUpon>DashboardGui.xaml</DependentUpon>
+    </Compile>
+>>>>>>> 8313f31a0cb2ba3e3888373959ad52b80c4d9936:TestAddOn/TestAddOn.csproj
     <Compile Include="Dashboard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD:Dashboard/Dashboard.csproj
     <Page Include="MSportDashboard.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+=======
+>>>>>>> 8313f31a0cb2ba3e3888373959ad52b80c4d9936:TestAddOn/TestAddOn.csproj
     <Page Include="WRCDashboard.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

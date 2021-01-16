@@ -6,9 +6,8 @@
              xmlns:local="clr-namespace:RBRProDashboard"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
+    <Grid>
         <!-- The following button has a Tag and a ToolTip. They will be translated by the TGD.Localization engine -->
         <Button Content="WRC Dashboard" HorizontalAlignment="Left" Margin="26,64,0,0" VerticalAlignment="Top" Width="228" Click="Button_Trigger_WRCDashboard" Tag="Test.HelloWorld" ToolTip="Test.HelloWorld" Height="29"/>
-        <Button Content="M-Sport Dashboard" HorizontalAlignment="Left" Margin="26,64,0,0" VerticalAlignment="Top" Width="228" Click="Button_Trigger_MSportDashboard" Tag="Test.HelloWorld" ToolTip="Test.HelloWorld" Height="29"/>
-    </StackPanel>
+    </Grid>
 </UserControl>
