@@ -1,12 +1,9 @@
 ﻿using RBRPro.Api;
 using System.ComponentModel;
-using System.Windows.Controls;
 using TGD.Framework;
-using TGD.Rbr.Telemetry.Data;
-using TGD.Utils;
 using System.Windows.Media.Imaging;
 
-namespace RBRProTestAddOn
+namespace RBRProDashboard
 {
     public class Model : DynamicContextManager
     {
@@ -92,7 +89,7 @@ namespace RBRProTestAddOn
         /// <summary>
         /// The file TestAddOn.ini is used as the main repository of the persistent properties
         /// </summary>
-        public Model(TestAddon addon) : base($"{AddOns.BASEPATH}\\{addon.Name}\\{addon.Name}.ini")
+        public Model(Dashboard addon) : base($"{AddOns.BASEPATH}\\{addon.Name}\\{addon.Name}.ini")
         {
             // Other model initialization code here
         }
