@@ -12,11 +12,11 @@ namespace RBRProDashboard
     /// A RBRPro Addon is a class implementing the IRbrProAddOn interface.
     /// Optionally, the Addon can receive telemetry by implementing the ITelemetryClient interface
     /// </summary>
-    public class Dashboard : IRbrProAddOn
+    public class DashboardAddon : IRbrProAddOn
     {
         // Maybe in future these properties will be replaced by class attributes
         #region ABOUT
-        public string Name { get => "Dashboard"; }
+        public string Name { get => "MSportDashboard"; }
         public string Description { get => "This is a Test Add-On"; }
         public string Author { get => "TGD"; }
         public char[] Gears = { 'R', 'N', '1', '2', '3', '4', '5', '6' };
@@ -35,7 +35,7 @@ namespace RBRProDashboard
         // The viewmodel class
         Model _model;
 
-        public Dashboard()
+        public DashboardAddon()
         {
             _model = new Model(this);       
         }

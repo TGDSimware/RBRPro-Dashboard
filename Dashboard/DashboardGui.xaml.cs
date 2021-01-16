@@ -13,11 +13,11 @@ namespace RBRProDashboard
     {
         IRbrPro _rbrPro = null;
         Model _model = null;
-        Dashboard _addon = null;
+        DashboardAddon _addon = null;
 
         public DashboardGui(IRbrProAddOn addon, IRbrPro interactor, Model model)
         {
-            _addon = (Dashboard) addon;
+            _addon = (DashboardAddon) addon;
             this.DataContext = _model = model;
             _rbrPro = interactor;
 
@@ -43,9 +43,9 @@ namespace RBRProDashboard
             Local.Translate(this);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Trigger_MSportDashboard(object sender, RoutedEventArgs e)
         {
-            Overlay myOverlay = new Overlay(_model, null);
+            MSportDashboard myOverlay = new MSportDashboard(_model, null);
             myOverlay.Show();
             //_rbrPro?.StartGame(false, false, false); // this is the action
         }

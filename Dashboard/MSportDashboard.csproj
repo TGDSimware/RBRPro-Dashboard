@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Dashboard</RootNamespace>
-    <AssemblyName>Dashboard</AssemblyName>
+    <AssemblyName>MSportDashboard</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -71,36 +71,17 @@
   <ItemGroup>
     <Compile Include="Local.cs" />
     <Compile Include="Model.cs" />
-<<<<<<< HEAD:Dashboard/Dashboard.csproj
     <Compile Include="MSportDashboard.xaml.cs">
       <DependentUpon>MSportDashboard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WRCDashboard.xaml.cs">
-      <DependentUpon>WRCDashboard.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DashboardGui.xaml.cs">
       <DependentUpon>DashboardGui.xaml</DependentUpon>
     </Compile>
-=======
-    <Compile Include="WRCDashboard.xaml.cs">
-      <DependentUpon>WRCDashboard.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DashboardGui.xaml.cs">
-      <DependentUpon>DashboardGui.xaml</DependentUpon>
-    </Compile>
->>>>>>> 8313f31a0cb2ba3e3888373959ad52b80c4d9936:TestAddOn/TestAddOn.csproj
-    <Compile Include="Dashboard.cs" />
+    <Compile Include="DashboardAddon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD:Dashboard/Dashboard.csproj
     <Page Include="MSportDashboard.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-=======
->>>>>>> 8313f31a0cb2ba3e3888373959ad52b80c4d9936:TestAddOn/TestAddOn.csproj
-    <Page Include="WRCDashboard.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -116,44 +97,43 @@
     <Folder Include="font\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="Dashboard\languages\czech.ini">
+    <None Include="MSportDashboard\languages\czech.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dashboard\languages\english.ini">
+    <None Include="MSportDashboard\languages\english.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dashboard\languages\finnish.ini">
+    <None Include="MSportDashboard\languages\finnish.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dashboard\languages\french.ini">
+    <None Include="MSportDashboard\languages\french.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dashboard\languages\german.ini">
+    <None Include="MSportDashboard\languages\german.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dashboard\languages\greek.ini">
+    <None Include="MSportDashboard\languages\greek.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dashboard\languages\italian.ini">
+    <None Include="MSportDashboard\languages\italian.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dashboard\languages\polish.ini">
+    <None Include="MSportDashboard\languages\polish.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dashboard\languages\portuguese.ini">
+    <None Include="MSportDashboard\languages\portuguese.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dashboard\languages\russian.ini">
+    <None Include="MSportDashboard\languages\russian.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dashboard\languages\spanish.ini">
+    <None Include="MSportDashboard\languages\spanish.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dashboard\languages\swedish.ini">
+    <None Include="MSportDashboard\languages\swedish.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Dashboard\Dashboard.ini">
+    <None Include="MSportDashboard\MSportDashboard.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
