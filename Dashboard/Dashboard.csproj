@@ -7,8 +7,8 @@
     <ProjectGuid>{59B3412B-F020-4499-8F3D-E14EDEC56CB9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestAddOn</RootNamespace>
-    <AssemblyName>TestAddOn</AssemblyName>
+    <RootNamespace>Dashboard</RootNamespace>
+    <AssemblyName>Dashboard</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -71,21 +71,21 @@
   <ItemGroup>
     <Compile Include="Local.cs" />
     <Compile Include="Model.cs" />
-    <Compile Include="Overlay.xaml.cs">
-      <DependentUpon>Overlay.xaml</DependentUpon>
+    <Compile Include="WRCDashboard.xaml.cs">
+      <DependentUpon>WRCDashboard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TestAddOnGui.xaml.cs">
-      <DependentUpon>TestAddOnGui.xaml</DependentUpon>
+    <Compile Include="DashboardGui.xaml.cs">
+      <DependentUpon>DashboardGui.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TestAddon.cs" />
+    <Compile Include="Dashboard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Overlay.xaml">
+    <Page Include="WRCDashboard.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="TestAddOnGui.xaml">
+    <Page Include="DashboardGui.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -98,43 +98,43 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="TestAddOn\languages\czech.ini">
+    <None Include="Dashboard\languages\czech.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="TestAddOn\languages\english.ini">
+    <None Include="Dashboard\languages\english.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="TestAddOn\languages\finnish.ini">
+    <None Include="Dashboard\languages\finnish.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="TestAddOn\languages\french.ini">
+    <None Include="Dashboard\languages\french.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="TestAddOn\languages\german.ini">
+    <None Include="Dashboard\languages\german.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="TestAddOn\languages\greek.ini">
+    <None Include="Dashboard\languages\greek.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="TestAddOn\languages\italian.ini">
+    <None Include="Dashboard\languages\italian.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="TestAddOn\languages\polish.ini">
+    <None Include="Dashboard\languages\polish.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="TestAddOn\languages\portuguese.ini">
+    <None Include="Dashboard\languages\portuguese.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="TestAddOn\languages\russian.ini">
+    <None Include="Dashboard\languages\russian.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="TestAddOn\languages\spanish.ini">
+    <None Include="Dashboard\languages\spanish.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="TestAddOn\languages\swedish.ini">
+    <None Include="Dashboard\languages\swedish.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="TestAddOn\TestAddOn.ini">
+    <None Include="Dashboard\Dashboard.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

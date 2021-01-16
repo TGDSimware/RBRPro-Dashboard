@@ -1,22 +1,23 @@
 ﻿using RBRPro.Api;
+using RBRProTestAddOn;
 using System.Windows;
 using System.Windows.Controls;
 using TGD.Utils;
 
-namespace RBRProTestAddOn
+namespace RBRProDashboard
 {
     /// <summary>
     /// Logica di interazione per TestAddonGui.xaml
     /// </summary>
-    public partial class TestAddOnGui : UserControl
+    public partial class DashboardGui : UserControl
     {
         IRbrPro _rbrPro = null;
         Model _model = null;
-        TestAddon _addon = null;
+        Dashboard _addon = null;
 
-        public TestAddOnGui(IRbrProAddOn addon, IRbrPro interactor, Model model)
+        public DashboardGui(IRbrProAddOn addon, IRbrPro interactor, Model model)
         {
-            _addon = (TestAddon) addon;
+            _addon = (Dashboard) addon;
             this.DataContext = _model = model;
             _rbrPro = interactor;
 
@@ -42,9 +43,9 @@ namespace RBRProTestAddOn
             Local.Translate(this);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Trigger_WRCDashboard(object sender, RoutedEventArgs e)
         {
-            Overlay myOverlay = new Overlay(_model, null);
+            WRCDashboard myOverlay = new WRCDashboard(_model, null);
             myOverlay.Show();
             //_rbrPro?.StartGame(false, false, false); // this is the action
         }

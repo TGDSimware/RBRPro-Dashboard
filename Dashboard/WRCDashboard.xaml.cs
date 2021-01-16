@@ -2,16 +2,16 @@
 using System.Windows;
 using TGD.Rbr.Telemetry.Data;
 
-namespace RBRProTestAddOn
+namespace RBRProDashboard
 {
     /// <summary>
     /// Logica di interazione per Navigator.xaml
     /// </summary>    
-    public partial class Overlay : MetroWindow
+    public partial class WRCDashboard : MetroWindow
     {
         Model _model;
 
-        public Overlay(Model model, Window owner = null)
+        public WRCDashboard(Model model, Window owner = null)
         {
             if (owner != null) {
                 this.Owner = owner;
