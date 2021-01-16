@@ -9,15 +9,15 @@ namespace RBRProDashboard
     /// <summary>
     /// Logica di interazione per TestAddonGui.xaml
     /// </summary>
-    public partial class DashboardGui : UserControl
+    public partial class MSportDashboardGui : UserControl
     {
         IRbrPro _rbrPro = null;
         Model _model = null;
-        DashboardAddon _addon = null;
+        MSportDashboardAddon _addon = null;
 
-        public DashboardGui(IRbrProAddOn addon, IRbrPro interactor, Model model)
+        public MSportDashboardGui(IRbrProAddOn addon, IRbrPro interactor, Model model)
         {
-            _addon = (DashboardAddon) addon;
+            _addon = (MSportDashboardAddon) addon;
             this.DataContext = _model = model;
             _rbrPro = interactor;
 

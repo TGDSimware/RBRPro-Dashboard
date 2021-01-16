@@ -12,17 +12,17 @@ namespace RBRProDashboard
     /// A RBRPro Addon is a class implementing the IRbrProAddOn interface.
     /// Optionally, the Addon can receive telemetry by implementing the ITelemetryClient interface
     /// </summary>
-    public class DashboardAddon : IRbrProAddOn
+    public class WRCDashboardAddon : IRbrProAddOn
     {
         // Maybe in future these properties will be replaced by class attributes
         #region ABOUT
-        public string Name { get => "MSportDashboard"; }
+        public string Name { get => "WRCDashboard"; }
         public string Description { get => "This is a Test Add-On"; }
         public string Author { get => "TGD"; }
-        public char[] Gears = { 'R', 'N', '1', '2', '3', '4', '5', '6' };
+        public readonly char[] Gears = { 'R', 'N', '1', '2', '3', '4', '5', '6' };
 
         // An optional icon is provided to the manager, just to decorate the tab item a bit...
-        public Image Icon => new Image { Source = new BitmapImage(new Uri($"pack://application:,,,/Dashboard;component/icon.png", UriKind.Absolute)) };
+        public Image Icon => new Image { Source = new BitmapImage(new Uri($"pack://application:,,,/WRCDashboard;component/icon.png", UriKind.Absolute)) };
 
         // This property tells the manager if the addon can be detached in a separate window or not
         public bool IsDetachable { get => true; }
@@ -35,7 +35,7 @@ namespace RBRProDashboard
         // The viewmodel class
         Model _model;
 
-        public DashboardAddon()
+        public WRCDashboardAddon()
         {
             _model = new Model(this);       
         }
@@ -83,7 +83,7 @@ namespace RBRProDashboard
         /// <returns></returns>
         public System.Windows.Controls.Control GetGui()
         {
-            return new DashboardGui(this, _interactor, _model);
+            return new WRCDashboardGui(this, _interactor, _model);
         }
 
         public void Exit()

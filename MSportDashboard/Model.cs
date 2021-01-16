@@ -89,7 +89,7 @@ namespace RBRProDashboard
         /// <summary>
         /// The file TestAddOn.ini is used as the main repository of the persistent properties
         /// </summary>
-        public Model(DashboardAddon addon) : base($"{AddOns.BASEPATH}\\{addon.Name}\\{addon.Name}.ini")
+        public Model(MSportDashboardAddon addon) : base($"{AddOns.BASEPATH}\\{addon.Name}\\{addon.Name}.ini")
         {
             // Other model initialization code here
         }

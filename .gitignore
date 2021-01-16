@@ -264,3 +264,6 @@ __pycache__/
 /ProDash
 /TelemetryRecorder
 /EventMaker
+
+/RBRPro.API/*
+/RBRPro.API
