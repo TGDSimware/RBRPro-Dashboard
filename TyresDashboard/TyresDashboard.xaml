@@ -1,5 +1,5 @@
 ﻿<controls:MetroWindow
-    xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls" x:Class="RBRProDashboard.MSportDashboard"
+    xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls" x:Class="RBRProDashboard.TyresDashboard"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:RBRProDashboard"
         xmlns:uc="clr-namespace:RBRProDashboard"
         mc:Ignorable="d"
-        Width="520" Height="320"
+        Width="250" Height="200"
         ShowInTaskbar="False" BorderThickness="0" ShowTitleBar="False" Foreground="White" FontSize="30" WindowStartupLocation="Manual" ResizeMode="NoResize" 
     Background="#11000000" WindowStyle="None" Topmost="True" ShowCloseButton="False" AllowsTransparency="True"
     LocationChanged="MetroWindow_LocationChanged" Deactivated="MetroWindow_Deactivated" Activated="MetroWindow_Activated">
@@ -60,43 +60,49 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.ColumnSpan="3">
             <StackPanel Cursor="Hand">
-                <StackPanel Width="500" Height="300" Background="#202020">
-                    <StackPanel Width="500" Height="60" Background="White">
-                        <TextBlock Text="RPM" Foreground="Black"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Width="500" Height="180">
-                        <StackPanel Orientation="Vertical" Height="180" Width="200">
-                            <StackPanel Orientation="Vertical" Height="80" Margin="5,5">
-                               
+                <StackPanel Height="160" Width="230" HorizontalAlignment="Left" Orientation="Horizontal" Background="Black">
+                    <StackPanel Orientation="Vertical" Height="160" Width="115" Background="Aqua" HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal" Height="80" Background="Black" HorizontalAlignment="Center">
+
+                            <StackPanel Background="Yellow" Height="70" Width="35">
+                                <Grid Margin="0,7,0,27">
+                                    <TextBlock Text="26°C" Foreground="DarkBlue" FontSize="11" FontFamily="WRC Clean Roman" TextAlignment="Center"/>
+                                </Grid>
+                                <Grid>
+                                    <TextBlock Text="100%" Foreground="DarkBlue" FontSize="11" FontFamily="WRC Clean Roman" TextAlignment="Center"/>
+                                </Grid>
                             </StackPanel>
-                            <StackPanel Orientation="Vertical" Height="80" Margin="5,5">
-                               
+
+                            <StackPanel Background="Yellow" Height="70" Width="40" Margin="3,0">
+                                <Grid HorizontalAlignment="Center" Margin="0,5">
+                                    <ProgressBar Height="30" Width="60" Minimum="1" Maximum="5" Value="3">
+                                        <ProgressBar.LayoutTransform>
+                                            <RotateTransform Angle="-90" />
+                                        </ProgressBar.LayoutTransform>
+
+                                    </ProgressBar>
+                                </Grid>
                             </StackPanel>
+
+                            <StackPanel Background="Yellow" Height="70" Width="28">
+                                <Grid Margin="0,17,0,0">
+                                    <TextBlock Text="15" Foreground="DarkBlue" FontSize="11" FontFamily="WRC Clean Roman" TextAlignment="Center"/>
+                                </Grid>
+                                <Grid>
+                                    <TextBlock Text="PSI" Foreground="DarkBlue" FontSize="11" FontFamily="WRC Clean Roman" TextAlignment="Center"/>
+                                </Grid>
+                            </StackPanel>
+
                         </StackPanel>
 
-                        <StackPanel  Height="180" Width="100">
-
-                            <Grid>
-                                <TextBlock Width="100" Text="1" FontSize="135" TextAlignment="Center"  Foreground="#c71227" Background="Black" />
-                                
-                            </Grid>
-                            
-
+                        <StackPanel Orientation="Horizontal" Height="80" Background="White">
+                            <Grid Background="Black" Height="30"></Grid>
                         </StackPanel>
 
-                        <StackPanel Orientation="Vertical" Height="180" Width="200">
-                            <StackPanel Orientation="Vertical" Height="80" Margin="5,5">
-
-                            </StackPanel>
-                            <StackPanel Orientation="Vertical" Height="80" Margin="5,5">
-
-                            </StackPanel>
-                        </StackPanel>
                     </StackPanel>
-                    <StackPanel Width="500" Height="60" Background="White">
-                        
-                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Height="160" Width="115" Background="Red" HorizontalAlignment="Right">
 
+                    </StackPanel>
 
                 </StackPanel>
                 
