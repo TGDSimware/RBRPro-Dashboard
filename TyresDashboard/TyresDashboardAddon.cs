@@ -56,24 +56,53 @@ namespace RBRProDashboard
             // this is where the telemetry is received, the data object contais all the infos
 
             //PRESSURE 216340.858
-            //TEMPERATURE 337 DEGRés
+            //TEMPERATURE 337 KELVINS
             //USURE 0.0036796
 
+            _model.LeftFrontDamage = (int) AverageDamageTyres(data.car.suspensionLF.wheel.tire);
+            _model.RightFrontDamage = (int)AverageDamageTyres(data.car.suspensionRF.wheel.tire);
+            _model.LeftRearDamage = (int)AverageDamageTyres(data.car.suspensionLB.wheel.tire);
+            _model.RightRearDamage = (int)AverageDamageTyres(data.car.suspensionRB.wheel.tire);
 
-            _model.LeftFrontDamage = data.car.suspensionLF.wheel.tire.segment1.wear;
-            _model.RightFrontDamage = data.car.suspensionLF.wheel.tire.segment1.wear;
-            _model.LeftRearDamage = data.car.suspensionLF.wheel.tire.segment1.wear;
-            _model.RightRearDamage = data.car.suspensionLF.wheel.tire.segment1.wear;
+            _model.LeftFrontPressure = PascalToPsi(data.car.suspensionLF.wheel.tire.pressure);
+            _model.RightFrontPressure = PascalToPsi(data.car.suspensionLF.wheel.tire.pressure);
+            _model.LeftRearPressure = PascalToPsi(data.car.suspensionLB.wheel.tire.pressure);
+            _model.RightRearPressure = PascalToPsi(data.car.suspensionRB.wheel.tire.pressure);
 
-            _model.LeftFrontPressure = data.car.suspensionLF.wheel.tire.pressure;
-            _model.RightFrontPressure = data.car.suspensionRF.wheel.tire.pressure;
-            _model.LeftRearPressure = data.car.suspensionLB.wheel.tire.pressure;
-            _model.RightRearPressure = data.car.suspensionRB.wheel.tire.pressure;
+            _model.LeftFrontTemperature = KelvinCelsiusConverter(data.car.suspensionLF.wheel.tire.temperature, true);
+            _model.RightFrontTemperature = KelvinCelsiusConverter(data.car.suspensionRF.wheel.tire.temperature, true);
+            _model.LeftRearTemperature = KelvinCelsiusConverter(data.car.suspensionLB.wheel.tire.temperature, true);
+            _model.RightRearTemperature = KelvinCelsiusConverter(data.car.suspensionRB.wheel.tire.temperature, true);
 
-            _model.LeftFrontTemperature = data.car.suspensionLF.wheel.tire.temperature;
-            _model.RightFrontTemperature = data.car.suspensionRF.wheel.tire.temperature;
-            _model.LeftRearTemperature = data.car.suspensionLB.wheel.tire.temperature;
-            _model.RightRearTemperature = data.car.suspensionRB.wheel.tire.temperature;
+    }
+
+        private static double AverageDamageTyres(Tire tire)
+        {
+            float[] damageSegment = {tire.segment1.wear, tire.segment2.wear, tire.segment3.wear, tire.segment4.wear,
+                tire.segment5.wear, tire.segment6.wear, tire.segment7.wear, tire.segment8.wear};
+
+            double sum = 0;
+
+            for (int i = 0; i < damageSegment.Length; i++)
+            {
+                sum += damageSegment[i];
+            }
+
+            double average = sum / damageSegment.Length;
+            return 100 - (average * 100);
+        }
+
+        private static double PascalToPsi(double value)
+        {
+            return Math.Round(value / 6894.76, 1);
+        }
+
+
+        private static double KelvinCelsiusConverter(double value, bool kelvin = false)
+        {
+            double kelvinToCelsius = Math.Round(value - 273.15, 1);
+            double celsiusToKelvin = Math.Round(value + 273.15, 1);
+            return kelvin ? kelvinToCelsius : celsiusToKelvin;
         }
 
         /// <summary>
@@ -103,5 +132,7 @@ namespace RBRProDashboard
         {
             // No action performed
         }
+
+
     }
 }

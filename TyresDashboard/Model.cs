@@ -28,7 +28,7 @@ namespace RBRProDashboard
         /// This property is mapped in a specific section of the .ini File with a specific name
         /// </summary>
         [ConfigProperty("Section2", "PropertyName")]
-        public string YetAnotherPersistentProperty { get { return GetIniProperty<string>(); } set { SetIniProperty(value); } }
+        public double YetAnotherPersistentProperty { get { return GetIniProperty<double>(); } set { SetIniProperty(value); } }
 
         [DefaultValue(120)]
         [ConfigProperty("Overlay", "Top")]
@@ -52,54 +52,54 @@ namespace RBRProDashboard
 
         //TEMPERATURE PNEU GAUCHE AV float
         [RuntimeProperty("Tyre.LeftFrontTemperature")]
-        public float LeftFrontTemperature { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+        public double LeftFrontTemperature { get { return GetRuntimeProperty<double>(); } set { SetRuntimeProperty(value); } }
 
         //PRESSION PNEU GAUCHE AV float
         [RuntimeProperty("Tyre.LeftFrontPressure")]
-        public float LeftFrontPressure { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+        public double LeftFrontPressure { get { return GetRuntimeProperty<double> (); } set { SetRuntimeProperty(value); } }
 
         //USURE PNEU GAUCHE AV float
         [RuntimeProperty("Tyre.LeftFrontDamage")]
-        public float LeftFrontDamage { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+        public int LeftFrontDamage { get { return GetRuntimeProperty<int> (); } set { SetRuntimeProperty(value); } }
 
 
         //TEMPERATURE PNEU DROIT AV float
         [RuntimeProperty("Tyre.RightFrontTemperature")]
-        public float RightFrontTemperature { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+        public double RightFrontTemperature { get { return GetRuntimeProperty<double>(); } set { SetRuntimeProperty(value); } }
 
         //PRESSION PNEU DROIT AV float
         [RuntimeProperty("Tyre.RightFrontPressure")]
-        public float RightFrontPressure { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+        public double RightFrontPressure { get { return GetRuntimeProperty<double> (); } set { SetRuntimeProperty(value); } }
 
         //USURE PNEU DROIT AV float
         [RuntimeProperty("Tyre.RightFrontDamage")]
-        public float RightFrontDamage { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+        public int RightFrontDamage { get { return GetRuntimeProperty<int> (); } set { SetRuntimeProperty(value); } }
 
 
         //PRESSION PNEU GAUCHE AR
         [RuntimeProperty("Tyre.LeftRearPressure")]
-        public float LeftRearPressure { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+        public double LeftRearPressure { get { return GetRuntimeProperty<double> (); } set { SetRuntimeProperty(value); } }
 
         //TEMPERATURE PNEU GAUCHE AR
         [RuntimeProperty("Tyre.LeftRearTemperature")]
-        public float LeftRearTemperature { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+        public double LeftRearTemperature { get { return GetRuntimeProperty<double>(); } set { SetRuntimeProperty(value); } }
 
         //USURE PNEU GAUCHE AR
         [RuntimeProperty("Tyre.LeftRearDamage")]
-        public float LeftRearDamage { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+        public int LeftRearDamage { get { return GetRuntimeProperty<int> (); } set { SetRuntimeProperty(value); } }
 
 
         //TEMPERATURE PNEU DROIT AR
         [RuntimeProperty("Tyre.RightRearTemperature")]
-        public float RightRearTemperature { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+        public double RightRearTemperature { get { return GetRuntimeProperty<double> (); } set { SetRuntimeProperty(value); } }
 
         //PRESSION PNEU DROIT AR
         [RuntimeProperty("Tyre.RightRearPressure")]
-        public float RightRearPressure { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+        public double RightRearPressure { get { return GetRuntimeProperty<double> (); } set { SetRuntimeProperty(value); } }
 
         //USURE PNEU DROIT AR
         [RuntimeProperty("Tyre.RightRearDamage")]
-        public float RightRearDamage { get { return GetRuntimeProperty<float>(); } set { SetRuntimeProperty(value); } }
+        public int RightRearDamage { get { return GetRuntimeProperty<int> (); } set { SetRuntimeProperty(value); } }
 
 
         /*[RuntimeProperty]
