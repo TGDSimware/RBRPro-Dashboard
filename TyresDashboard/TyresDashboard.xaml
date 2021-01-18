@@ -50,14 +50,7 @@
             </Setter>
         </Style>
         
-        
-        <SolidColorBrush x:Key="ProgressBar.Progress" Color="#FF06B025"/>
-        <SolidColorBrush x:Key="ProgressBar.Background" Color="#FFE6E6E6"/>
-        <SolidColorBrush x:Key="ProgressBar.Border" Color="#FFBCBCBC"/>
         <Style x:Key="ProgressBarStyle1" TargetType="{x:Type ProgressBar}">
-            <Setter Property="Foreground" Value="{StaticResource ProgressBar.Progress}"/>
-            <Setter Property="Background" Value="{StaticResource ProgressBar.Background}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource ProgressBar.Border}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -130,7 +123,7 @@
                         <StackPanel Orientation="Horizontal" Height="80" Background="Black" HorizontalAlignment="Center">
 
                             <StackPanel Background="Yellow" Height="70" Width="35">
-                                <StackPanel Orientation="Horizontal" Margin="0,8,0,21" HorizontalAlignment="Center">
+                                <StackPanel Orientation="Horizontal" Margin="0,10,0,21" HorizontalAlignment="Center">
                                     <TextBlock Text="{Binding LeftFrontTemperature}" Foreground="DarkBlue" FontSize="10" FontFamily="WRC Clean Roman" TextAlignment="Center"/>
                                     <TextBlock Text="°C" FontSize="10" Foreground="DarkBlue" FontFamily="WRC Clean Roman"/>
                                 </StackPanel>
@@ -141,23 +134,25 @@
                             </StackPanel>
 
                             <StackPanel Background="Yellow" Height="70" Width="40" Margin="3,0">
-                                <Grid HorizontalAlignment="Center" Margin="0,5">
-                                    <ProgressBar Height="32" Width="62" Style="{DynamicResource ProgressBarStyle1}" BorderBrush="Black">
+                                <TextBlock Text="AV GAUCHE" FontSize="6" TextAlignment="Center" Foreground="Black"/>
+                                <Grid HorizontalAlignment="Center" Margin="0,0">
+                                    <ProgressBar Height="30" Width="60" Style="{DynamicResource ProgressBarStyle1}" BorderBrush="Black">
                                         <ProgressBar.LayoutTransform>
                                             <RotateTransform Angle="-90" />
                                         </ProgressBar.LayoutTransform>
                                     </ProgressBar>
-                                    <ProgressBar Height="30" Width="60" Minimum="0" Maximum="1" Value="0" Background="green" Style="{DynamicResource ProgressBarStyle1}" BorderThickness="0">
+                                    <ProgressBar Height="28" Width="58" Minimum="0" Maximum="1" Value="0" Style="{DynamicResource ProgressBarStyle1}" Background="{Binding TemperatureLF}" BorderThickness="0">
+
                                         <ProgressBar.LayoutTransform>
                                             <RotateTransform Angle="90" />
                                         </ProgressBar.LayoutTransform>
-                                        
+
                                     </ProgressBar>
                                 </Grid>
                             </StackPanel>
 
                             <StackPanel Background="Yellow" Height="70" Width="28">
-                                <Grid Margin="0,22,0,0">
+                                <Grid Margin="0,24,0,0">
                                     <TextBlock Text="{Binding LeftFrontPressure}" Foreground="DarkBlue" FontSize="10" FontFamily="WRC Clean Roman" TextAlignment="Center"/>
                                 </Grid>
                                 <Grid>
@@ -167,17 +162,134 @@
 
                         </StackPanel>
 
-                        <StackPanel Orientation="Horizontal" Height="80" Background="White">
-                            <Grid Background="Black" Height="30"></Grid>
+                        <StackPanel Orientation="Horizontal" Height="80" Background="Black" HorizontalAlignment="Center">
+
+                            <StackPanel Background="Yellow" Height="70" Width="35">
+                                <StackPanel Orientation="Horizontal" Margin="0,10,0,21" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding LeftRearTemperature}" Foreground="DarkBlue" FontSize="10" FontFamily="WRC Clean Roman" TextAlignment="Center"/>
+                                    <TextBlock Text="°C" FontSize="10" Foreground="DarkBlue" FontFamily="WRC Clean Roman"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,9,0,27" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding LeftRearDamage}" Foreground="DarkBlue" FontSize="10" FontFamily="WRC Clean Roman" TextAlignment="Center"/>
+                                    <TextBlock Text="%" FontSize="10" Foreground="DarkBlue" FontFamily="WRC Clean Roman"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <StackPanel Background="Yellow" Height="70" Width="40" Margin="3,0">
+                                <TextBlock Text="AV GAUCHE" FontSize="6" TextAlignment="Center" Foreground="Black"/>
+                                <Grid HorizontalAlignment="Center" Margin="0,0">
+                                    <ProgressBar Height="30" Width="60" Style="{DynamicResource ProgressBarStyle1}" BorderBrush="Black">
+                                        <ProgressBar.LayoutTransform>
+                                            <RotateTransform Angle="-90" />
+                                        </ProgressBar.LayoutTransform>
+                                    </ProgressBar>
+                                    <ProgressBar Height="28" Width="58" Minimum="0" Maximum="1" Value="0" Style="{DynamicResource ProgressBarStyle1}" Background="{Binding TemperatureLR}" BorderThickness="0">
+
+                                        <ProgressBar.LayoutTransform>
+                                            <RotateTransform Angle="90" />
+                                        </ProgressBar.LayoutTransform>
+
+                                    </ProgressBar>
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel Background="Yellow" Height="70" Width="28">
+                                <Grid Margin="0,24,0,0">
+                                    <TextBlock Text="{Binding LeftRearPressure}" Foreground="DarkBlue" FontSize="10" FontFamily="WRC Clean Roman" TextAlignment="Center"/>
+                                </Grid>
+                                <Grid>
+                                    <TextBlock Text="PSI" Foreground="DarkBlue" FontSize="10" FontFamily="WRC Clean Roman" TextAlignment="Center"/>
+                                </Grid>
+                            </StackPanel>
+
                         </StackPanel>
 
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Height="160" Width="115" Background="Red" HorizontalAlignment="Right">
+                        <StackPanel Orientation="Horizontal" Height="80" Background="Black" HorizontalAlignment="Center">
+                            <StackPanel Background="Yellow" Height="70" Width="28">
+                                <Grid Margin="0,24,0,0">
+                                    <TextBlock Text="{Binding RightFrontPressure}" Foreground="DarkBlue" FontSize="10" FontFamily="WRC Clean Roman" TextAlignment="Center"/>
+                                </Grid>
+                                <Grid>
+                                    <TextBlock Text="PSI" Foreground="DarkBlue" FontSize="10" FontFamily="WRC Clean Roman" TextAlignment="Center"/>
+                                </Grid>
+                            </StackPanel>
 
+                            <StackPanel Background="Yellow" Height="70" Width="40" Margin="3,0">
+                                <TextBlock Text="AV GAUCHE" FontSize="6" TextAlignment="Center" Foreground="Black"/>
+                                <Grid HorizontalAlignment="Center" Margin="0,0">
+                                    <ProgressBar Height="30" Width="60" Style="{DynamicResource ProgressBarStyle1}" BorderBrush="Black">
+                                        <ProgressBar.LayoutTransform>
+                                            <RotateTransform Angle="-90" />
+                                        </ProgressBar.LayoutTransform>
+                                    </ProgressBar>
+                                    <ProgressBar Height="28" Width="58" Minimum="0" Maximum="1" Value="0" Style="{DynamicResource ProgressBarStyle1}" Background="{Binding TemperatureRF}" BorderThickness="0">
+
+                                        <ProgressBar.LayoutTransform>
+                                            <RotateTransform Angle="90" />
+                                        </ProgressBar.LayoutTransform>
+
+                                    </ProgressBar>
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel Background="Yellow" Height="70" Width="35">
+                                <StackPanel Orientation="Horizontal" Margin="0,10,0,21" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding RightFrontTemperature}" Foreground="DarkBlue" FontSize="10" FontFamily="WRC Clean Roman" TextAlignment="Center"/>
+                                    <TextBlock Text="°C" FontSize="10" Foreground="DarkBlue" FontFamily="WRC Clean Roman"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,9,0,27" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding RightFrontDamage}" Foreground="DarkBlue" FontSize="10" FontFamily="WRC Clean Roman" TextAlignment="Center"/>
+                                    <TextBlock Text="%" FontSize="10" Foreground="DarkBlue" FontFamily="WRC Clean Roman"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Height="80" Background="Black" HorizontalAlignment="Center">
+                            <StackPanel Background="Yellow" Height="70" Width="28">
+                                <Grid Margin="0,24,0,0">
+                                    <TextBlock Text="{Binding RightRearPressure}" Foreground="DarkBlue" FontSize="10" FontFamily="WRC Clean Roman" TextAlignment="Center"/>
+                                </Grid>
+                                <Grid>
+                                    <TextBlock Text="PSI" Foreground="DarkBlue" FontSize="10" FontFamily="WRC Clean Roman" TextAlignment="Center"/>
+                                </Grid>
+                            </StackPanel>
+
+
+                            <StackPanel Background="Yellow" Height="70" Width="40" Margin="3,0">
+                                <TextBlock Text="AV GAUCHE" FontSize="6" TextAlignment="Center" Foreground="Black"/>
+                                <Grid HorizontalAlignment="Center" Margin="0,0">
+                                    <ProgressBar Height="30" Width="60" Style="{DynamicResource ProgressBarStyle1}" BorderBrush="Black">
+                                        <ProgressBar.LayoutTransform>
+                                            <RotateTransform Angle="-90" />
+                                        </ProgressBar.LayoutTransform>
+                                    </ProgressBar>
+                                    <ProgressBar Height="28" Width="58" Minimum="0" Maximum="1" Value="0" Style="{DynamicResource ProgressBarStyle1}" Background="{Binding TemperatureRR}" BorderThickness="0">
+
+                                        <ProgressBar.LayoutTransform>
+                                            <RotateTransform Angle="90" />
+                                        </ProgressBar.LayoutTransform>
+
+                                    </ProgressBar>
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel Background="Yellow" Height="70" Width="35">
+                                <StackPanel Orientation="Horizontal" Margin="0,10,0,21" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding RightRearTemperature}" Foreground="DarkBlue" FontSize="10" FontFamily="WRC Clean Roman" TextAlignment="Center"/>
+                                    <TextBlock Text="°C" FontSize="10" Foreground="DarkBlue" FontFamily="WRC Clean Roman"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,9,0,27" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding RightRearDamage}" Foreground="DarkBlue" FontSize="10" FontFamily="WRC Clean Roman" TextAlignment="Center"/>
+                                    <TextBlock Text="%" FontSize="10" Foreground="DarkBlue" FontFamily="WRC Clean Roman"/>
+                                </StackPanel>
+                            </StackPanel>
+                            
+                        </StackPanel>
+                        
                     </StackPanel>
-
                 </StackPanel>
-
             </StackPanel>
         </StackPanel>
     </Grid>

@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using TGD.Framework;
 using System.Windows.Media.Imaging;
+using System.Windows.Media;
 
 namespace RBRProDashboard
 {
@@ -101,6 +102,18 @@ namespace RBRProDashboard
         [RuntimeProperty("Tyre.RightRearDamage")]
         public int RightRearDamage { get { return GetRuntimeProperty<int> (); } set { SetRuntimeProperty(value); } }
 
+
+        [RuntimeProperty("Tyre.TemperatureLF")]
+        public Brush TemperatureLF { get { return GetRuntimeProperty<Brush>(); } set { SetRuntimeProperty(value); } }
+
+        [RuntimeProperty("Tyre.TemperatureRF")]
+        public Brush TemperatureRF { get { return GetRuntimeProperty<Brush>(); } set { SetRuntimeProperty(value); } }
+
+        [RuntimeProperty("Tyre.TemperatureRR")]
+        public Brush TemperatureRR { get { return GetRuntimeProperty<Brush>(); } set { SetRuntimeProperty(value); } }
+
+        [RuntimeProperty("Tyre.TemperatureLR")]
+        public Brush TemperatureLR { get { return GetRuntimeProperty<Brush>(); } set { SetRuntimeProperty(value); } }
 
         /*[RuntimeProperty]
         public int AnotherRuntimeProperty { get { return GetRuntimeProperty<int>(); } set { SetRuntimeProperty(value); } }*/
